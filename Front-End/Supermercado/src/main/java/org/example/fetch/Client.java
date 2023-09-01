@@ -2,7 +2,6 @@ package org.example.fetch;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -42,6 +41,16 @@ public class Client {
             return response.body();
         } catch (Exception e) {
             throw new  RuntimeException(e);
+        }
+    }
+
+    public String deleteProduct(String url){
+        HttpRequest request = generateRequest(url).DELETE().build();
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return response.body();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

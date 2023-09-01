@@ -18,7 +18,7 @@ public class Main {
                 }
                 """;
 
-        String products = cliente.updateProduct("http://localhost:5000/produto/38", jsonString);
+        String products = cliente.deleteProduct("http://localhost:5000/produto/38");
         System.out.println(products);
 
     }
