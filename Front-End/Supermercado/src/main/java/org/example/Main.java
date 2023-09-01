@@ -18,7 +18,7 @@ public class Main {
                 }
                 """;
 
-        String products = cliente.insertProducts("http://localhost:5000/produto", jsonString);
+        String products = cliente.updateProduct("http://localhost:5000/produto/38", jsonString);
         System.out.println(products);
 
     }

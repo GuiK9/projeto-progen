@@ -2,6 +2,7 @@ package org.example.fetch;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -17,21 +18,30 @@ public class Client {
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return StringEscapeUtils.unescapeJava(response.body());
-        } catch (Exception e){
-           return (e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
     public String insertProducts(String url, String produtoJSON) {
-        String produtJson =  produtoJSON;
-        HttpRequest request = generateRequest(url).POST(HttpRequest.BodyPublishers.ofString(produtJson)).header("Content-Type", "application/json").build();
+        HttpRequest request = generateRequest(url).POST(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response);
-            System.out.println(produtJson);
             return response.body();
         }catch (Exception e) {
-            return(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String updateProduct(String url, String produtoJSON){
+        HttpRequest request = generateRequest(url).PUT(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
+
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.body());
+            return response.body();
+        } catch (Exception e) {
+            throw new  RuntimeException(e);
         }
     }
 
