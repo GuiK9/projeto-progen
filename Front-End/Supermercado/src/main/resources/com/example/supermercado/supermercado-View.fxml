@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.supermercado.SupermercadoController">
+   <children>
+      <Label alignment="CENTER" prefHeight="71.0" prefWidth="1082.0" text="Produtos">
+         <font>
+            <Font name="Ubuntu" size="58.0" />
+         </font>
+      </Label>
+      <Pane layoutX="21.0" layoutY="119.0" prefHeight="327.0" prefWidth="397.0">
+         <children>
+            <Label layoutX="14.0" layoutY="46.0" text="Descriçao">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="76.0" text="Marca">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="106.0" text="Preço de custo">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="136.0" text="preço de venda">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="166.0" text="codigo de barras">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TextMarca" layoutX="205.0" layoutY="74.0" />
+            <TextField fx:id="TextDescricao" layoutX="205.0" layoutY="44.0" />
+            <TextField fx:id="TextPrecCusto" layoutX="205.0" layoutY="104.0" />
+            <TextField fx:id="TextPrecVenda" layoutX="205.0" layoutY="134.0" />
+            <TextField fx:id="TextCodBarras" layoutX="205.0" layoutY="164.0" />
+            <Label layoutX="15.0" layoutY="199.0" text="Embalagem">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="ChoiceEmbalagem" layoutX="205.0" layoutY="197.0" prefHeight="24.0" prefWidth="170.0" />
+            <Button fx:id="AddButton" layoutX="22.0" layoutY="239.0" mnemonicParsing="false" onAction="#insertProduct" prefHeight="39.0" prefWidth="103.0" text="Adicionar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TableView id="TableProdutos" fx:id="TableProdutos" layoutX="497.0" layoutY="118.0" prefHeight="390.0" prefWidth="538.0">
+        <columns>
+          <TableColumn id="ColumnDescricao" fx:id="ColumnDescrcao" prefWidth="175.0" text="Descriçao" />
+            <TableColumn id="ColumnMarca" fx:id="ColumnMarca" prefWidth="87.0" text="Marca" />
+            <TableColumn id="ColumnCodBarras" fx:id="ColumnCodBarras" prefWidth="146.0" text="Codigo de Barras" />
+            <TableColumn id="ColumnPrecVendas" fx:id="ColumnPrecVendas" prefWidth="129.0" text="Preço de venda" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

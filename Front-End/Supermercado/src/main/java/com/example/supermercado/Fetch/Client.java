@@ -1,4 +1,4 @@
-package org.example.fetch;
+package com.example.supermercado.Fetch;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
@@ -10,9 +10,10 @@ import java.nio.charset.StandardCharsets;
 
 public class Client {
 
-    HttpClient client = HttpClient.newHttpClient();
+    static String url = "http://localhost:5000";
+    static HttpClient client = HttpClient.newHttpClient();
 
-    public String getProducts(String url) {
+    public static String getProducts() {
         HttpRequest request = generateRequest(url).build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -54,7 +55,7 @@ public class Client {
         }
     }
 
-    private HttpRequest.Builder generateRequest(String url){
+    private static HttpRequest.Builder generateRequest(String url){
         return HttpRequest.newBuilder().uri(URI.create(url)).header("Accept-Charset", StandardCharsets.UTF_8.name());
     }
 }
