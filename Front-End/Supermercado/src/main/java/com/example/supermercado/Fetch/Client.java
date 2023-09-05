@@ -39,14 +39,13 @@ public class Client {
 
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
             return response.body();
         } catch (Exception e) {
             throw new  RuntimeException(e);
         }
     }
 
-    public static String deleteProduct(String id){
+    public static String deleteProducts(String id){
         HttpRequest request = generateRequest(url + "/produto/" + id).DELETE().build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

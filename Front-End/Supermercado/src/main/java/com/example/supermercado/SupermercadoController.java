@@ -49,8 +49,9 @@ public class SupermercadoController {
         tableInitialize();
     }
 
-    public void deleteProduct() {
-
+    public void deleteProduct() throws JsonProcessingException {
+        deleteProducts(selectedId);
+        tableInitialize();
     }
 
 
@@ -108,13 +109,15 @@ public class SupermercadoController {
 
     private void TableSelector() {
         TableProdutos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            TextDescricao.setText(newValue.getDescricao());
-            TextMarca.setText(newValue.getMarca());
-            TextPrecCusto.setText(String.valueOf(newValue.getPrecoCusto()));
-            TextPrecVenda.setText(String.valueOf(newValue.getPrecoDeVenda()));
-            TextCodBarras.setText(newValue.getCodigoDeBarras());
-            ChoiceEmbalagem.setValue(newValue.getEmbalagem());
-            selectedId(newValue.getId());
+            if (newValue != null){
+                TextDescricao.setText(newValue.getDescricao());
+                TextMarca.setText(newValue.getMarca());
+                TextPrecCusto.setText(String.valueOf(newValue.getPrecoCusto()));
+                TextPrecVenda.setText(String.valueOf(newValue.getPrecoDeVenda()));
+                TextCodBarras.setText(newValue.getCodigoDeBarras());
+                ChoiceEmbalagem.setValue(newValue.getEmbalagem());
+                selectedId(newValue.getId());
+            }
         });
     }
 

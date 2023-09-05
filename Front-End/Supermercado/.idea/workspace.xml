@@ -7,9 +7,7 @@
     <list default="true" id="91ae061a-35ea-4279-a4b9-a1d80add223c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Fetch/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Fetch/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Models/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Models/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermercado/SupermercadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/SupermercadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/supermercado/supermercado-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/supermercado/supermercado-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
