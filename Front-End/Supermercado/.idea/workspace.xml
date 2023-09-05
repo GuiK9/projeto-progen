@@ -5,32 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91ae061a-35ea-4279-a4b9-a1d80add223c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Fetch/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Models/Produto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/SupermercadoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/supermercado/application.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/supermercado/supermercado-View.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.attach_pid21353" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/src/main/java/com/example/supermarket/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/src/main/java/com/example/supermarket/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/src/main/resources/com/example/supermarket/Images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supermarket/src/main/resources/com/example/supermarket/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/fetch/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Models/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/Models/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermercado/SupermercadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermercado/SupermercadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

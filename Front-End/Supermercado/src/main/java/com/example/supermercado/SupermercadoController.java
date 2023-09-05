@@ -6,9 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import com.example.supermercado.Models.Produto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
@@ -20,15 +22,15 @@ public class SupermercadoController {
     private ChoiceBox<String> ChoiceEmbalagem;
     ObservableList<String> itemsEmbalagem = FXCollections.observableList(List.of("cx - caixa", "un - unidade", "pt - pacote", "fd - farco", "pc - peça", "lt - litro", "fr - frasco", "ev - envelope"));
     @FXML
-    private TableColumn<String, String> ColumnCodBarras;
+    private TableColumn<Produto, String> ColumnCodBarras;
     @FXML
-    private TableColumn<String, String> ColumnDescrcao;
+    private TableColumn<Produto, String> ColumnDescrcao;
     @FXML
-    private TableColumn<String, String> ColumnMarca;
+    private TableColumn<Produto, String> ColumnMarca;
     @FXML
-    private TableColumn<String, String> ColumnPrecVendas;
+    private TableColumn<Produto, Double> ColumnPrecVendas;
     @FXML
-    private TableView<?> TableProdutos;
+    private TableView<Produto> TableProdutos;
     @FXML
     private TextField TextCodBarras;
     @FXML
@@ -54,12 +56,27 @@ public class SupermercadoController {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(jsonString);
 
+        ObservableList<Produto> dados = FXCollections.observableArrayList();
+
         for (JsonNode objectNode : jsonNode) {
-            JsonNode descricao = objectNode.get("Descrição");
-            JsonNode marca = objectNode.get("Marca");
-            JsonNode codigoDeBarras = objectNode.get("Codigo de barras");
-            JsonNode precoDeVenda = objectNode.get("Preço de venda");
+
+            String descricao = objectNode.get("Descrição").toString().replaceAll("^\"|\"$", "");
+            String marca = objectNode.get("Marca").toString().replaceAll("^\"|\"$", "");
+            String codigoDeBarras = objectNode.get("Codigo de Barras").toString().replaceAll("^\"|\"$", "");
+            double precoDeVenda = Double.parseDouble(objectNode.get("Preço de venda").toString().replaceAll("^\"|\"$", ""));
+
+            Produto produto = new Produto(descricao, marca, codigoDeBarras, precoDeVenda);
+
+            ColumnDescrcao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+            ColumnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+            ColumnCodBarras.setCellValueFactory(new PropertyValueFactory<>("codigoDeBarras"));
+            ColumnPrecVendas.setCellValueFactory(new PropertyValueFactory<>("precoDeVenda"));
+
+            dados.add(produto);
         }
+
+        //TableProdutos.getColumns().addAll(ColumnDescrcao, ColumnMarca, ColumnCodBarras, ColumnPrecVendas);
+        TableProdutos.setItems(dados);
 
         ChoiceEmbalagem.setValue("cx");
         ChoiceEmbalagem.setItems(itemsEmbalagem);
