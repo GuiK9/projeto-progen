@@ -1,6 +1,7 @@
 package com.example.supermercado;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,15 +13,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.List;
+import java.util.*;
 
 import static com.example.supermercado.Fetch.Client.getProducts;
+import static com.example.supermercado.Fetch.Client.insertProducts;
 
 public class SupermercadoController {
 
     @FXML
     private ChoiceBox<String> ChoiceEmbalagem;
-    ObservableList<String> itemsEmbalagem = FXCollections.observableList(List.of("cx - caixa", "un - unidade", "pt - pacote", "fd - farco", "pc - peça", "lt - litro", "fr - frasco", "ev - envelope"));
     @FXML
     private TableColumn<Produto, String> ColumnCodBarras;
     @FXML
@@ -44,13 +45,44 @@ public class SupermercadoController {
     @FXML
     private Button AddButton;
 
-    public void insertProduct(ActionEvent e){
-        String text = getProducts();
-        System.out.println(text);
+    public void insertProduct(ActionEvent e) throws JsonProcessingException {
+
+        String embalagemFormated = ChoiceEmbalagem.getValue().substring(0, 2);
+
+        Produto produto = new Produto(TextDescricao.getText(), TextMarca.getText(), Double.parseDouble(TextPrecCusto.getText()), Double.parseDouble(TextPrecVenda.getText()), TextCodBarras.getText(), embalagemFormated);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+        jsonMap.put("descricao", produto.getDescricao());
+        jsonMap.put("marca", produto.getMarca());
+        jsonMap.put("preco_custo", produto.getPrecoCusto());
+        jsonMap.put("pre_venda", produto.getPrecoDeVenda());
+        jsonMap.put("codigo_barra", produto.getCodigoDeBarras());
+        jsonMap.put("embalagem", produto.getEmbalagem());
+
+        try {
+            String jsonString = objectMapper.writeValueAsString(jsonMap);
+            insertProducts(jsonString);
+        } catch (Exception err) {
+            System.out.println(err.getMessage());
+        }
+
+        tableInitialize();
     }
 
     @FXML
     private void initialize() throws JsonProcessingException {
+        tableInitialize();
+        choiceBoxInitializer();
+    }
+
+    private void choiceBoxInitializer() {
+        ObservableList<String> itemsEmbalagem = FXCollections.observableList(List.of("cx - caixa", "un - unidade", "pt - pacote", "fd - farco", "pc - peça", "lt - litro", "fr - frasco", "ev - envelope"));
+        ChoiceEmbalagem.setValue("cx");
+        ChoiceEmbalagem.setItems(itemsEmbalagem);
+    }
+
+    private void tableInitialize() throws JsonProcessingException {
         String jsonString = getProducts();
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -77,9 +109,6 @@ public class SupermercadoController {
 
         //TableProdutos.getColumns().addAll(ColumnDescrcao, ColumnMarca, ColumnCodBarras, ColumnPrecVendas);
         TableProdutos.setItems(dados);
-
-        ChoiceEmbalagem.setValue("cx");
-        ChoiceEmbalagem.setItems(itemsEmbalagem);
     }
 
 }

@@ -23,8 +23,9 @@ public class Client {
         }
     }
 
-    public String insertProducts(String url, String produtoJSON) {
-        HttpRequest request = generateRequest(url).POST(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
+    public static String insertProducts(String produtoJSON) {
+        HttpRequest request = generateRequest(url + "/produto").POST(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
+
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response.body();

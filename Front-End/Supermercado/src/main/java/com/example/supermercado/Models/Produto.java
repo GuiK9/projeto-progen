@@ -3,8 +3,20 @@ package com.example.supermercado.Models;
 public class Produto {
     private String descricao;
     private String marca;
+    private Double precoCusto;
+    private Double precoDeVenda;
+
     private String codigoDeBarras;
-    private double precoDeVenda;
+    private String embalagem;
+
+    public Produto(String descricao, String marca, Double precoCusto, Double precoDeVenda, String codigoDeBarras, String embalagem) {
+        this.descricao = descricao;
+        this.marca = marca;
+        this.precoCusto = precoCusto;
+        this.precoDeVenda = precoDeVenda;
+        this.codigoDeBarras = codigoDeBarras;
+        this.embalagem = embalagem;
+    }
 
     public Produto(String descricao, String marca, String codigoDeBarras, double precoDeVenda) {
         this.descricao = descricao;
@@ -29,6 +41,22 @@ public class Produto {
         this.marca = marca;
     }
 
+    public Double getPrecoCusto() {
+        return precoCusto;
+    }
+
+    public void setPrecoCusto(Double precoCusto) {
+        this.precoCusto = precoCusto;
+    }
+
+    public Double getPrecoDeVenda() {
+        return precoDeVenda;
+    }
+
+    public void setPrecoDeVenda(Double precoDeVenda) {
+        this.precoDeVenda = precoDeVenda;
+    }
+
     public String getCodigoDeBarras() {
         return codigoDeBarras;
     }
@@ -37,12 +65,12 @@ public class Produto {
         this.codigoDeBarras = codigoDeBarras;
     }
 
-    public double getPrecoDeVenda() {
-        return precoDeVenda;
+    public String getEmbalagem() {
+        return embalagem;
     }
 
-    public void setPrecoDeVenda(double precoDeVenda) {
-        this.precoDeVenda = precoDeVenda;
+    public void setEmbalagem(String embalagem) {
+        this.embalagem = embalagem;
     }
 
     @Override
@@ -54,4 +82,5 @@ public class Produto {
                 ", precoDeVenda='" + precoDeVenda + '\'' +
                 '}';
     }
+
 }
