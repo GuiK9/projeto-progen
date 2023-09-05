@@ -60,6 +60,11 @@
                   <Font size="16.0" />
                </font>
             </Button>
+            <Button fx:id="AddButton1" layoutX="132.0" layoutY="239.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="39.0" prefWidth="103.0" text="Atualizar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <TableView id="TableProdutos" fx:id="TableProdutos" layoutX="497.0" layoutY="118.0" prefHeight="390.0" prefWidth="538.0">

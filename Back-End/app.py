@@ -40,7 +40,8 @@ def get_all():
                     "Preço de custo": row[3],
                     "Preço de venda": row[4],
                     "Codigo de Barras": row[5],
-                    "Embalagem": row[6]
+                    "Embalagem": row[6],
+                    "id": row[0]
                 })            
     return products_table
 

@@ -34,8 +34,8 @@ public class Client {
         }
     }
 
-    public String updateProduct(String url, String produtoJSON){
-        HttpRequest request = generateRequest(url).PUT(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
+    public static String updateProducts(String id, String produtoJSON){
+        HttpRequest request = generateRequest(url + "/produto/" + id).PUT(HttpRequest.BodyPublishers.ofString(produtoJSON)).header("Content-Type", "application/json").build();
 
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -46,8 +46,8 @@ public class Client {
         }
     }
 
-    public String deleteProduct(String url){
-        HttpRequest request = generateRequest(url).DELETE().build();
+    public static String deleteProduct(String id){
+        HttpRequest request = generateRequest(url + "/produto/" + id).DELETE().build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response.body();

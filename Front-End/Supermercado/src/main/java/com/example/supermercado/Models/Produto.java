@@ -8,6 +8,8 @@ public class Produto {
 
     private String codigoDeBarras;
     private String embalagem;
+    
+    private String id;
 
     public Produto(String descricao, String marca, Double precoCusto, Double precoDeVenda, String codigoDeBarras, String embalagem) {
         this.descricao = descricao;
@@ -23,6 +25,16 @@ public class Produto {
         this.marca = marca;
         this.codigoDeBarras = codigoDeBarras;
         this.precoDeVenda = precoDeVenda;
+    }
+
+    public Produto(String descricao, String marca, String codigoDeBarras, Double precoDeVenda, String id, Double precoCusto, String embalagem) {
+        this.descricao = descricao;
+        this.marca = marca;
+        this.codigoDeBarras = codigoDeBarras;
+        this.precoDeVenda = precoDeVenda;
+        this.id = id;
+        this.precoCusto = precoCusto;
+        this.embalagem = embalagem;
     }
 
     public String getDescricao() {
@@ -73,6 +85,10 @@ public class Produto {
         this.embalagem = embalagem;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -83,4 +99,7 @@ public class Produto {
                 '}';
     }
 
+    public String getId() {
+        return this.id;
+    }
 }
